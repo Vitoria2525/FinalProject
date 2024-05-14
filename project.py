@@ -17,6 +17,8 @@ def read_data(file_path, file_format):
             except yaml.YAMLError as e:
                 print(f"Error while parsing YAML file: {e}")
                 return None
+        elif file_format == "xml":
+            data = ET.parse(file).getroot()
         else:
             print("Unsupported file format.")
             return None
