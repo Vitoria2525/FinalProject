@@ -6,7 +6,9 @@ name: Build
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+      - Task7
   schedule:
     -cron: "0 0 * * 0"
   
@@ -39,7 +41,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Build executable
-        run: pyinstaller --onefile main.py
+        run: pyinstaller.exe --onefile project.py
 
       - name: Upload executable
       - uses: actions/upload-artifact@v2
