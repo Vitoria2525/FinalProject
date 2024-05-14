@@ -14,6 +14,13 @@ def read_data(file_path, file_format):
             print("Unsupported file format.")
             return None
 
+def write_data(data, file_path, file_format):
+    with open(file_path, "w") as file:
+        if file_format == "json":
+            json.dump(data, file)
+        else:
+            raise ValueError("Unsupported file format")
+
 def main():
     parser = argparse.ArgumentParser(description="Convert data between .xml, .json, and .yml formats")
     parser.add_argument("input_file", help="Path to the input file")
