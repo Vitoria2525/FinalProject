@@ -10,6 +10,13 @@ def read_data(file_path, file_format):
             except json.JSONDecodeError:
                 print("Invalid JSON format or file does not exist.")
                 return None
+        elif file_format == "yml" or file_format == "yaml":
+            try:
+                data = yaml.load(file)
+                return data
+            except yaml.YAMLError as e:
+                print(f"Error while parsing YAML file: {e}")
+                return None
         else:
             print("Unsupported file format.")
             return None
